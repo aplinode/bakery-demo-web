@@ -343,6 +343,11 @@
 </div>
 </footer>
 <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
         // Simple scroll reveal for gallery images
         document.addEventListener('DOMContentLoaded', () => {
             const observerOptions = {

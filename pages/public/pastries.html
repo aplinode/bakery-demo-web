@@ -364,6 +364,11 @@
 </svg>
 </a>
 <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
         // Micro-interaction for smooth scrolling header reveal
         let lastScroll = 0;
         const nav = document.querySelector('nav');

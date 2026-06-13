@@ -386,6 +386,11 @@
 </div>
 </footer>
 <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
         function filterCategory(category) {
             const items = document.querySelectorAll('.product-item');
             const buttons = document.querySelectorAll('.tab-btn');

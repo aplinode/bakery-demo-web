@@ -351,6 +351,11 @@
 </div>
 </footer>
 <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
         // Micro-interactions for product cards
         document.querySelectorAll('.card-hover').forEach(card => {
             card.addEventListener('mouseenter', () => {

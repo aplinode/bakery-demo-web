@@ -301,6 +301,11 @@
 </svg>
 </a>
 <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
         // Simple form interaction
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();

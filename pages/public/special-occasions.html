@@ -374,6 +374,11 @@
 <span class="absolute right-full mr-4 bg-surface-container-highest px-4 py-2 rounded-lg text-body-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity luxury-shadow pointer-events-none">Chat with our Chef</span>
 </a>
 <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
         // Simple scroll behavior for Navbar
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');

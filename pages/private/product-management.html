@@ -117,7 +117,8 @@
 </head>
 <body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
 <!-- SideNavBar Anchor -->
-<aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low border-r border-outline-variant flex flex-col p-stack-sm gap-unit z-50">
+<div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 hidden max-lg:block" onclick="toggleAdminSidebar()"></div>
+<aside id="adminSidebar" class="max-lg:fixed max-lg:left-0 max-lg:top-0 max-lg:h-full max-lg:w-64 max-lg:z-50 max-lg:transform max-lg:-translate-x-full max-lg:transition-transform max-lg:duration-300 lg:fixed lg:left-0 lg:top-0 lg:h-full lg:w-64 bg-surface-container-low border-r border-outline-variant flex flex-col p-stack-sm gap-unit">
 <div class="mb-stack-md px-2">
 <h1 class="font-display-lg text-headline-sm text-primary">Admin Panel</h1>
 <p class="font-body-sm text-on-surface-variant opacity-70">Bakery Management</p>
@@ -169,8 +170,11 @@
 </div>
 </aside>
 <!-- TopNavBar Anchor -->
-<header class="sticky top-0 w-full z-40 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-desktop h-16 ml-64">
+<header class="sticky top-0 w-full z-30 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-desktop h-16 lg:ml-64">
 <div class="flex items-center gap-4 flex-1">
+<button class="lg:hidden p-2 text-on-surface-variant hover:text-primary transition-colors" onclick="toggleAdminSidebar()">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
 <div class="relative w-full max-w-md">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
 <input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none text-sm transition-all" placeholder="Search inventory..." type="text"/>
@@ -197,7 +201,7 @@
 </div>
 </header>
 <!-- Main Content -->
-<main class="ml-64 p-margin-desktop min-h-screen">
+<main class="lg:ml-64 p-margin-desktop min-h-screen">
 <div class="max-w-container-max mx-auto">
 <!-- Breadcrumbs & Header -->
 <div class="flex justify-between items-end mb-stack-lg">
@@ -464,6 +468,13 @@
 <span class="absolute right-full mr-4 bg-primary text-on-primary px-3 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Admin Support</span>
 </button>
 <script>
+        function toggleAdminSidebar() {
+            const sidebar = document.getElementById('adminSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('max-lg:-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
         // Modal interactivity
         window.onclick = function(event) {
             const modal = document.getElementById('add-product-modal');

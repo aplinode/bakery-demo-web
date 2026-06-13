@@ -128,8 +128,9 @@
     </style>
 </head>
 <body class="font-body-md text-on-surface antialiased">
+<div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 hidden max-lg:block" onclick="toggleAdminSidebar()"></div>
 <!-- SideNavBar Anchor -->
-<nav class="fixed left-0 top-0 h-full w-64 bg-surface-container-low dark:bg-tertiary-container border-r border-outline-variant flex flex-col p-stack-sm gap-unit z-50">
+<nav id="adminSidebar" class="max-lg:fixed max-lg:left-0 max-lg:top-0 max-lg:h-full max-lg:w-64 max-lg:z-50 max-lg:transform max-lg:-translate-x-full max-lg:transition-transform max-lg:duration-300 lg:fixed lg:left-0 lg:top-0 lg:h-full lg:w-64 bg-surface-container-low dark:bg-tertiary-container border-r border-outline-variant flex flex-col p-stack-sm gap-unit">
 <div class="px-4 py-6 mb-stack-md">
 <h1 class="font-display-lg text-headline-sm text-primary">Admin Panel</h1>
 <p class="font-body-sm text-on-surface-variant">Bakery Management</p>
@@ -177,11 +178,14 @@
 </div>
 </nav>
 <!-- Main Content Area -->
-<main class="ml-64 min-h-screen">
+<main class="lg:ml-64 min-h-screen">
 <!-- TopAppBar Anchor -->
-<header class="sticky top-0 w-full z-40 bg-surface dark:bg-surface-dim border-b border-outline-variant flex justify-between items-center px-margin-desktop h-16">
+<header class="sticky top-0 w-full z-30 bg-surface dark:bg-surface-dim border-b border-outline-variant flex justify-between items-center px-margin-desktop h-16">
 <div class="flex items-center gap-gutter">
-<div class="relative w-96">
+<button class="lg:hidden p-2 text-on-surface-variant hover:text-primary transition-colors" onclick="toggleAdminSidebar()">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="relative max-lg:hidden md:block w-48 lg:w-96">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
 <input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-1.5 pl-10 pr-4 text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Search orders or products..." type="text"/>
 </div>
@@ -397,6 +401,13 @@
 <span class="material-symbols-outlined" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
 </button>
 <script>
+        function toggleAdminSidebar() {
+            const sidebar = document.getElementById('adminSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('max-lg:-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
         // Micro-interactions and Lightweight Atmospheric Effects
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.bg-surface-container-lowest');
