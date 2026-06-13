@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Artisanal Heritage | Luxury Gallery</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e4e2de",
+                        "secondary-container": "#fed488",
+                        "primary": "#26170c",
+                        "primary-fixed": "#fbddca",
+                        "tertiary": "#20190e",
+                        "outline-variant": "#d2c4bc",
+                        "on-primary-container": "#ac9181",
+                        "inverse-primary": "#dec1af",
+                        "secondary-fixed": "#ffdea5",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "surface-bright": "#fbf9f5",
+                        "tertiary-fixed-dim": "#d2c4b2",
+                        "surface-dim": "#dbdad6",
+                        "secondary-fixed-dim": "#e9c176",
+                        "surface-tint": "#705a4c",
+                        "secondary": "#775a19",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#4f453f",
+                        "outline": "#81756e",
+                        "inverse-surface": "#30312e",
+                        "on-tertiary-fixed": "#221a0f",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#a19584",
+                        "on-secondary-container": "#785a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae8e4",
+                        "surface-container-highest": "#e4e2de",
+                        "primary-fixed-dim": "#dec1af",
+                        "on-background": "#1b1c1a",
+                        "surface": "#fbf9f5",
+                        "inverse-on-surface": "#f2f0ed",
+                        "on-primary-fixed-variant": "#574335",
+                        "tertiary-fixed": "#efe0cd",
+                        "background": "#fbf9f5",
+                        "on-surface": "#1b1c1a",
+                        "tertiary-container": "#362e21",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#261900",
+                        "surface-container": "#efeeea",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#28180d",
+                        "primary-container": "#3d2b1f",
+                        "on-tertiary-fixed-variant": "#4f4538",
+                        "surface-container-low": "#f5f3ef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "stack-sm": "16px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "stack-lg": "64px",
+                        "stack-md": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "body-sm": ["Montserrat"],
+                        "headline-sm": ["Playfair Display"],
+                        "label-lg": ["Montserrat"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .masonry-grid {
+            columns: 1;
+            column-gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .masonry-grid {
+                columns: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                columns: 3;
+            }
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+
+        .luxury-hover-overlay {
+            background: linear-gradient(to top, rgba(38, 23, 12, 0.8) 0%, rgba(38, 23, 12, 0) 60%);
+        }
+
+        /* Glassmorphism subtle filter bar */
+        .filter-glass {
+            background: rgba(251, 249, 245, 0.8);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+    <!-- TopNavBar -->
+    <header
+        class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-container-high/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-200 ease-in-out">
+        <nav class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+            <div class="flex items-center">
+                <a class="font-display-lg text-headline-sm text-primary dark:text-primary-fixed tracking-tight"
+                    href="../index.html">Artisanal Heritage</a>
+            </div>
+            <div class="hidden md:flex items-center gap-stack-md">
+                <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:text-secondary-fixed-dim duration-300"
+                    href="../index.html">Home</a>
+                <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:text-secondary-fixed-dim duration-300"
+                    href="cakes.html">Cakes</a>
+                <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:text-secondary-fixed-dim duration-300"
+                    href="pastries.html">Pastries</a>
+                <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:text-secondary-fixed-dim duration-300"
+                    href="cupcakes-cookies-desserts.html">Desserts</a>
+                <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:text-secondary-fixed-dim duration-300"
+                    href="special-occasions.html">Gifts</a>
+                <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:text-secondary-fixed-dim duration-300"
+                    href="about.html">About</a>
+            </div>
+            <div class="flex items-center gap-stack-sm">
+                <button
+                    class="material-symbols-outlined text-on-surface-variant hover:text-secondary duration-300">shopping_cart</button>
+                <button
+                    class="material-symbols-outlined text-on-surface-variant hover:text-secondary duration-300">person</button>
+                <button class="md:hidden material-symbols-outlined text-on-surface-variant hover:text-secondary duration-300" onclick="toggleSidebar()">menu</button>
+            </div>
+        </nav>
+    </header>
+    <!-- Mobile Sidebar -->
+    <div id="mobileSidebar" class="fixed inset-0 z-50 md:hidden hidden">
+        <div class="fixed inset-0 bg-black/50" onclick="toggleSidebar()"></div>
+        <div class="fixed left-0 top-0 bottom-0 w-72 bg-surface shadow-xl z-10 transform transition-all duration-300 overflow-y-auto">
+            <div class="flex justify-between items-center p-4 border-b border-outline-variant">
+                <span class="font-display-lg text-headline-sm text-primary">Menu</span>
+                <button class="p-2 text-on-surface-variant hover:text-primary" onclick="toggleSidebar()">
+                    <span class="material-symbols-outlined" data-icon="close">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col p-4 gap-1">
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="../index.html"><span class="material-symbols-outlined">home</span> Home</a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="cakes.html"><span class="material-symbols-outlined">cake</span> Cakes</a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="pastries.html"><span class="material-symbols-outlined">bakery_dining</span> Pastries</a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="cupcakes-cookies-desserts.html"><span class="material-symbols-outlined">cookie</span> Desserts</a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="special-occasions.html"><span class="material-symbols-outlined">card_giftcard</span> Gifts</a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="custom-cakes.html"><span class="material-symbols-outlined">edit</span> Custom Cakes</a>
+                <a class="flex items-center gap-3 px-4 py-3 text-primary font-bold bg-secondary-container rounded-xl" href="gallery.html"><span class="material-symbols-outlined">collections</span> Gallery</a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="reviews-faq.html"><span class="material-symbols-outlined">reviews</span> Reviews</a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="contact.html"><span class="material-symbols-outlined">mail</span> Contact</a>
+                <div class="border-t border-outline-variant/30 mt-4 pt-4">
+                    <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="../private/admin-login.html"><span class="material-symbols-outlined">admin_panel_settings</span> Admin</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <main class="pt-20">
+        <!-- Hero Section / Title -->
+        <section class="px-margin-desktop py-stack-lg max-w-container-max mx-auto text-center">
+            <h1 class="font-display-lg text-display-lg mb-4 text-primary">The Art of Baking</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">A visual journey through our
+                heritage of artisanal craftsmanship and modern patisserie luxury.</p>
+        </section>
+        <!-- Category Filter -->
+        <section
+            class="sticky top-20 z-40 py-stack-sm filter-glass px-margin-desktop border-b border-outline-variant/10">
+            <div class="max-w-container-max mx-auto flex flex-wrap justify-center gap-4">
+                <button
+                    class="px-6 py-2 rounded-full font-label-lg text-label-lg bg-primary text-on-primary transition-all duration-300">All
+                    Collections</button>
+                <button
+                    class="px-6 py-2 rounded-full font-label-lg text-label-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-all duration-300">Cakes</button>
+                <button
+                    class="px-6 py-2 rounded-full font-label-lg text-label-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-all duration-300">Pastries</button>
+                <button
+                    class="px-6 py-2 rounded-full font-label-lg text-label-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-all duration-300">Desserts</button>
+                <button
+                    class="px-6 py-2 rounded-full font-label-lg text-label-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-all duration-300">Bakery
+                    Kitchen</button>
+            </div>
+        </section>
+        <!-- Masonry Gallery Grid -->
+        <section class="px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+            <div class="masonry-grid">
+                <!-- Gallery Item 1 -->
+                <div
+                    class="gallery-item group relative overflow-hidden rounded-xl bg-surface-container-low transition-all duration-500 hover:-translate-y-1">
+                    <img class="w-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                        data-alt="A high-end, three-tiered minimalist wedding cake with smooth cream-white frosting and delicate edible gold leaf accents. The cake sits on a vintage marble pedestal against a soft, warm beige background. Professional editorial food photography with cinematic lighting and a shallow depth of field, emphasizing the luxury texture of the artisanal heritage brand."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1tWd6vuHj4C2yohD6stBvWV_Z679kboIhfdDCrjlymfYCyAkkSBYt7ucauO48sivn1-8gSfMI4KEcJkE0rP3aAs0GwZT0XlF4MLgetNDxFcNnRJ56IPfj4hIEqY8o6d17-uFI0ilcbf9hq5QpvpZbEQdewc76bduVkCAnPGADuEfM14SboYZyrWENnE8lSBywWWQczsfLVi5b1D4Tz0Ap8XHasHYupsYVam0uFHfw8g5PvxqtDcT9f8BTDYSq3L1b5nEUOVvfeSk" />
+                    <div
+                        class="luxury-hover-overlay absolute inset-0 flex flex-col justify-end p-stack-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="font-label-sm text-label-sm text-secondary-fixed mb-1">Cakes</span>
+                        <h3 class="font-headline-sm text-headline-sm text-white">Gilded Vanilla Elegance</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div
+                    class="gallery-item group relative overflow-hidden rounded-xl bg-surface-container-low transition-all duration-500 hover:-translate-y-1">
+                    <img class="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        data-alt="Close-up shot of perfectly laminated buttery croissants on a wooden baker's peel, dusted lightly with flour. The golden-brown layers are crisp and flaky, glowing under soft morning sun-drenched lighting in a high-end kitchen setting. The aesthetic is clean, sophisticated, and highlights the precision of artisanal heritage pastry making."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWmIOGNuuficI8sEJZHddJPhmHgpjEh3dAgNIxVEiIq3LEbbXLHxbjSKVioBrnh75egQLR0Vy4FSjuRzZWB7D-0R1aeXod9oPoBtn4VS-uZKOAr4kHIimV0DVLIOqDsjLwiKIhdjwIRw0pISWKBZkX4q8r6gRwg2WaTeP9-2NQDOG267boxOZ5-9hXoInh9a1O6u-vUM-eqDw0AIciDdPLaGtHGa4WHzkqg4QptevF9P-PSefoa08EP5ik7YgjVfEPv7XchkqmlaU" />
+                    <div
+                        class="luxury-hover-overlay absolute inset-0 flex flex-col justify-end p-stack-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="font-label-sm text-label-sm text-secondary-fixed mb-1">Pastries</span>
+                        <h3 class="font-headline-sm text-headline-sm text-white">Saffron Butter Croissant</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div
+                    class="gallery-item group relative overflow-hidden rounded-xl bg-surface-container-low transition-all duration-500 hover:-translate-y-1">
+                    <img class="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        data-alt="A professional baker's kitchen showing an array of gleaming copper pots and modern stainless steel appliances. In the center, a dark wooden island is covered with high-quality ingredients like vanilla pods, dark cocoa powder, and locally sourced honey. The atmosphere is warm, inviting, and impeccably clean, representing the soul of a luxury artisanal heritage bakery."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA940ZaVIZKQMTBT75iwKINLnRzpjV-pJ_EX6Ohlvbj7DSwaCN3wK9PqUbrL7z-4nkUgugBHAGTHybD2RKkKkq6Ik3swrM-HvWme-aU3aFVMwwugotRkL0JfXK2gVBrEiGUyNv5PPkhPMO4BFHazARKlFI2w4yJB7wG3TrbLvBHHimSbxJeyXiZTQIGy2v7_JOvxTRzeD3naGLTYgXKVH7_e_k3ikzlzftEkMT3PmGEs00jYq4dzQtLGU-D27UwJrQw7jYBrSH9m28" />
+                    <div
+                        class="luxury-hover-overlay absolute inset-0 flex flex-col justify-end p-stack-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="font-label-sm text-label-sm text-secondary-fixed mb-1">Bakery Kitchen</span>
+                        <h3 class="font-headline-sm text-headline-sm text-white">The Artisan's Atelier</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div
+                    class="gallery-item group relative overflow-hidden rounded-xl bg-surface-container-low transition-all duration-500 hover:-translate-y-1">
+                    <img class="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        data-alt="Exquisite individual chocolate entremets with a mirror-glaze finish, decorated with single raspberries and a tiny fleck of real gold. They are arranged in a minimalist grid on a matte charcoal slab. The lighting is moody yet bright, casting soft shadows that emphasize the high-gloss luxury of the artisanal heritage dessert collection."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5aiOMZMbwosGY6uTzA7i4Aq0JWGA0NDlEapfediHTzTZMf7SYl-tTJvNBqEoqKP63CmXMNt7Bp9ysKYiuQHRK1xW3jKRWP_inwTdFyUNe5RRRt2IBGCMZM82XxE84MOB6PKW22E2As2xXrru_dsuK4UcnnEbQD7lAx1Es5q0uBBi-hZXCV-gS9M5nyLMKzS8X1JO3deoA88HI0W3KG--MDW4KjmHWaKpjyKUg9GF22Q8bm2MxCoMHxc3YeJpU9FVLwk8Ix-7T57k" />
+                    <div
+                        class="luxury-hover-overlay absolute inset-0 flex flex-col justify-end p-stack-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="font-label-sm text-label-sm text-secondary-fixed mb-1">Desserts</span>
+                        <h3 class="font-headline-sm text-headline-sm text-white">Velvet Mirror Glaze</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 5 -->
+                <div
+                    class="gallery-item group relative overflow-hidden rounded-xl bg-surface-container-low transition-all duration-500 hover:-translate-y-1">
+                    <img class="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        data-alt="A decadent dark chocolate cake with multiple layers, topped with thick ganache and artisanal macarons. The cake is shot from a low angle to show its majestic height and intricate textures. Set against a clean, warm-toned studio background with soft golden-hour lighting, highlighting the premium quality and rich heritage of the brand's cake artistry."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuATJ5lT4Z-88d0XpzIFXRVJ06XsODlRjcjeuHWY6Pri8WYm8yQg0pnadmiZK2VeJjk6yfE9_JWri2DCBEAbFwGIgfQGj9sq-ZoqtDABgHZcjXkzFkiMum4xeOO7Y0XdT4caeoz4xH74nFxwwWVC2WCNvdniXgN7kaBYjZNXSHKDFcO6Ko2zmoY3te061ux22Ag3TQuhPXcNTsI0Cs7zdvOvTUyME852heJPgc_Ywbxb6AUf4I2V89fKGVURoW2TMwkHjCE-rAhrJd8" />
+                    <div
+                        class="luxury-hover-overlay absolute inset-0 flex flex-col justify-end p-stack-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="font-label-sm text-label-sm text-secondary-fixed mb-1">Cakes</span>
+                        <h3 class="font-headline-sm text-headline-sm text-white">Double Ganache Royale</h3>
+                    </div>
+                </div>
+                <!-- Gallery Item 6 -->
+                <div
+                    class="gallery-item group relative overflow-hidden rounded-xl bg-surface-container-low transition-all duration-500 hover:-translate-y-1">
+                    <img class="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        data-alt="Artisanal fruit tarts with crisp shortcrust pastry, filled with smooth creme patissiere and topped with fresh, vibrant glazed berries. The tarts are presented on an elegant white ceramic platter. High-key lighting makes the colors of the fruit pop against the minimalist cream background, embodying the fresh luxury of heritage patisserie."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj9b7ndgmMpxJ9EaJxC72AokJp5wH5e47dLnbbmt6Cf4oe3Ej4zp8v7Iwogr4s93INwYknH7OQbqsGXArOOMX9NlAIICkDyDcyPumQlBF9rosRgfqt5O_vztrlfY_MeQGY1MAitc9JXy85u5MHGZyKHLJYY8VeP_aEQl72sc1ubKUhKXyBxzgBDJPrBs59JTe2LtT62I9_ZxX70u_vbAB_GQTtYyfTDqN0nCwnrRRP6xEr1eTh81jp4Byu1GsQxsUMqNN83puF98g" />
+                    <div
+                        class="luxury-hover-overlay absolute inset-0 flex flex-col justify-end p-stack-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="font-label-sm text-label-sm text-secondary-fixed mb-1">Pastries</span>
+                        <h3 class="font-headline-sm text-headline-sm text-white">seasonal Berry Tartlets</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="py-stack-lg bg-surface-container-low text-center px-margin-desktop">
+            <h2 class="font-headline-md text-headline-md text-primary mb-6">Experience the Heritage</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-lg mx-auto">Visit our luxury
+                boutiques or order online for delivery across urban centers.</p>
+            <a href="cakes.html"
+                class="inline-block bg-primary text-on-primary px-8 py-3 rounded-full font-label-lg text-label-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all duration-300">Explore
+                Collection</a>
+        </section>
+    </main>
+    <!-- WhatsApp Floating Button -->
+    <button
+        class="fixed bottom-8 right-8 z-50 w-14 h-14 bg-secondary-fixed text-primary rounded-full flex items-center justify-center shadow-[0_8px_30px_rgba(61,43,31,0.15)] hover:scale-110 transition-transform duration-300">
+        <span class="material-symbols-outlined text-3xl">chat</span>
+    </button>
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-tertiary w-full py-stack-lg border-t border-outline/20">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+            <div class="flex flex-col gap-unit">
+                <span class="font-display-lg text-headline-sm text-on-primary">Artisanal Heritage</span>
+                <p class="font-body-sm text-body-sm text-on-primary/70 mt-2">© 2024 Artisanal Heritage Pakistan. All
+                    Rights Reserved.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h4 class="font-label-lg text-label-lg text-on-primary mb-2">Explore</h4>
+                <a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all duration-300"
+                    href="#">Privacy Policy</a>
+                <a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all duration-300"
+                    href="#">Terms of Service</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h4 class="font-label-lg text-label-lg text-on-primary mb-2">Customer Care</h4>
+                <a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all duration-300"
+                    href="#">Shipping Info</a>
+                <a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all duration-300"
+                    href="contact.html">Contact Us</a>
+            </div>
+            <div class="flex flex-col gap-unit">
+                <h4 class="font-label-lg text-label-lg text-on-primary mb-2">Newsletter</h4>
+                <div class="flex gap-2">
+                    <input
+                        class="bg-primary-container border border-outline/30 rounded-lg px-3 py-2 text-on-primary w-full text-body-sm focus:outline-none focus:border-secondary"
+                        placeholder="Email Address" type="email" />
+                    <button
+                        class="bg-secondary-fixed text-primary px-4 py-2 rounded-lg font-label-lg hover:bg-secondary-fixed-dim transition-colors">Join</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
+        // Micro-interactions for gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Subtle scale or interaction logic
+            });
+        });
+
+        // Sticky Nav logic: adding shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+
+</html>

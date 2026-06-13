@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artisanal Heritage | Admin Inventory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e4e2de",
+                    "secondary-container": "#fed488",
+                    "primary": "#26170c",
+                    "primary-fixed": "#fbddca",
+                    "tertiary": "#20190e",
+                    "outline-variant": "#d2c4bc",
+                    "on-primary-container": "#ac9181",
+                    "inverse-primary": "#dec1af",
+                    "secondary-fixed": "#ffdea5",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "surface-bright": "#fbf9f5",
+                    "tertiary-fixed-dim": "#d2c4b2",
+                    "surface-dim": "#dbdad6",
+                    "secondary-fixed-dim": "#e9c176",
+                    "surface-tint": "#705a4c",
+                    "secondary": "#775a19",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#4f453f",
+                    "outline": "#81756e",
+                    "inverse-surface": "#30312e",
+                    "on-tertiary-fixed": "#221a0f",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#a19584",
+                    "on-secondary-container": "#785a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eae8e4",
+                    "surface-container-highest": "#e4e2de",
+                    "primary-fixed-dim": "#dec1af",
+                    "on-background": "#1b1c1a",
+                    "surface": "#fbf9f5",
+                    "inverse-on-surface": "#f2f0ed",
+                    "on-primary-fixed-variant": "#574335",
+                    "tertiary-fixed": "#efe0cd",
+                    "background": "#fbf9f5",
+                    "on-surface": "#1b1c1a",
+                    "tertiary-container": "#362e21",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#261900",
+                    "surface-container": "#efeeea",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#28180d",
+                    "primary-container": "#3d2b1f",
+                    "on-tertiary-fixed-variant": "#4f4538",
+                    "surface-container-low": "#f5f3ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "stack-sm": "16px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "stack-lg": "64px",
+                    "stack-md": "32px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Montserrat"],
+                    "display-lg": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "body-sm": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "label-lg": ["Montserrat"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-lg": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d2c4bc; border-radius: 10px; }
+        .bento-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .bento-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(61, 43, 31, 0.05); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low border-r border-outline-variant flex flex-col p-stack-sm gap-unit z-50">
+<div class="mb-stack-md px-2">
+<h1 class="font-display-lg text-headline-sm text-primary">Admin Panel</h1>
+<p class="font-body-sm text-on-surface-variant opacity-70">Bakery Management</p>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors font-body-md" href="admin-dashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Active Tab: Products -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-xl font-semibold font-body-md active:scale-95 duration-150" href="product-management.html">
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="collections">collections</span>
+<span>Gallery</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<button class="mt-4 bg-secondary text-on-secondary py-3 rounded-xl font-label-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity" onclick="document.getElementById('add-product-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            Add New Product
+        </button>
+<div class="mt-auto pt-stack-sm border-t border-outline-variant/30 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors text-sm" href="../../index.html">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+<span>View Site</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors text-sm" href="admin-login.html">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/20 rounded-xl transition-colors text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Anchor -->
+<header class="sticky top-0 w-full z-40 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-desktop h-16 ml-64">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none text-sm transition-all" placeholder="Search inventory..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-opacity duration-200 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-opacity duration-200">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="font-label-lg text-primary leading-none">Admin User</p>
+<p class="font-label-sm text-on-surface-variant opacity-70">Store Manager</p>
+</div>
+<img alt="Manager Avatar" class="w-10 h-10 rounded-full border-2 border-secondary-container object-cover" data-alt="A professional close-up headshot of a middle-aged man with a friendly expression, styled as a modern bakery manager. He is wearing a clean, minimal apron over a white shirt. The background is a softly blurred high-end bakery interior with warm, ambient lighting that complements the light mode UI. The aesthetic is professional, reliable, and artisanal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACU-Nn5BvHfpCaF2NuZgZd0zMLG6ECQ-CFzGc8lHGR2ib9bW9fibbGSjry8ycNqXtTFpS_Gmcqoi28l7Ga7vo0SSStFwksknuKh4xku42lH6yunSjMM8JDnFRhyBvKv5YnM6HNbzZGTUoea2B1JYn9y7NOMaYXKcCit9bldJk2sKJ6wEf9ycRHPC9Ld9nC4ESuBNP5B-5rUlVxZndaS2RBpff0ZN4cCzggHOoBlxjZIZhCJ4IaiOCBY6MUZYP6NYs666F2JsXq9TQ"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-margin-desktop min-h-screen">
+<div class="max-w-container-max mx-auto">
+<!-- Breadcrumbs & Header -->
+<div class="flex justify-between items-end mb-stack-lg">
+<div>
+<nav class="flex text-on-surface-variant font-label-sm gap-2 mb-2">
+<span>Management</span>
+<span class="opacity-40">/</span>
+<span class="text-primary font-semibold">Inventory</span>
+</nav>
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-md text-primary">Product Management</h2>
+</div>
+<div class="flex gap-stack-sm">
+<button class="flex items-center gap-2 px-6 py-2 border border-outline-variant rounded-lg font-label-lg text-primary hover:bg-surface-variant/20 transition-all">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+                        Filter
+                    </button>
+<button class="flex items-center gap-2 px-6 py-2 border border-outline-variant rounded-lg font-label-lg text-primary hover:bg-surface-variant/20 transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                        Export
+                    </button>
+</div>
+</div>
+<!-- Dashboard Quick Stats (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-stack-lg">
+<div class="bg-surface-container-low p-stack-sm rounded-xl bento-card border border-outline-variant/30">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined p-2 bg-primary-fixed text-primary rounded-lg" data-icon="inventory_2">inventory_2</span>
+<span class="text-secondary text-xs font-bold">+2.4%</span>
+</div>
+<p class="text-on-surface-variant font-label-sm">Total Products</p>
+<p class="text-headline-sm text-primary font-bold">124</p>
+</div>
+<div class="bg-surface-container-low p-stack-sm rounded-xl bento-card border border-outline-variant/30">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined p-2 bg-secondary-container text-on-secondary-container rounded-lg" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="text-secondary text-xs font-bold">Live</span>
+</div>
+<p class="text-on-surface-variant font-label-sm">Categories</p>
+<p class="text-headline-sm text-primary font-bold">12</p>
+</div>
+<div class="bg-surface-container-low p-stack-sm rounded-xl bento-card border border-outline-variant/30">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined p-2 bg-error-container text-on-error-container rounded-lg" data-icon="warning">warning</span>
+<span class="text-error text-xs font-bold">8 items</span>
+</div>
+<p class="text-on-surface-variant font-label-sm">Low Stock Items</p>
+<p class="text-headline-sm text-primary font-bold">8</p>
+</div>
+<div class="bg-surface-container-low p-stack-sm rounded-xl bento-card border border-outline-variant/30">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined p-2 bg-tertiary-fixed text-on-tertiary-fixed rounded-lg" data-icon="shopping_cart_checkout">shopping_cart_checkout</span>
+<span class="text-secondary text-xs font-bold">Top Seller</span>
+</div>
+<p class="text-on-surface-variant font-label-sm">Out of Stock</p>
+<p class="text-headline-sm text-primary font-bold">3</p>
+</div>
+</div>
+<!-- Product Table -->
+<div class="bg-surface-container-low rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-highest">
+<tr>
+<th class="px-6 py-4 font-label-lg text-primary border-b border-outline-variant/50">
+<input class="rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/>
+</th>
+<th class="px-6 py-4 font-label-lg text-primary border-b border-outline-variant/50">Product Name</th>
+<th class="px-6 py-4 font-label-lg text-primary border-b border-outline-variant/50">Category</th>
+<th class="px-6 py-4 font-label-lg text-primary border-b border-outline-variant/50">Price (PKR)</th>
+<th class="px-6 py-4 font-label-lg text-primary border-b border-outline-variant/50">Stock</th>
+<th class="px-6 py-4 font-label-lg text-primary border-b border-outline-variant/50">Status</th>
+<th class="px-6 py-4 font-label-lg text-primary border-b border-outline-variant/50 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Item 1 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="px-6 py-4"><input class="rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/></td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Cake" class="w-10 h-10 rounded-lg object-cover" data-alt="A luxurious dark chocolate ganache cake on a marble stand, captured in close-up with dramatic side lighting. The cake features gold leaf accents and artisanal textures, reflecting the luxury patisserie theme. The atmosphere is warm and indulgent, with a professional product photography style using a cream and chocolate brown color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9JYjNFcIDAt3CSOLxCQB_yQWN4uGvZmOqWu6Ii5YQ7z_g56Ug7W0-M0TAakqNYGeWHm2wbXFd9A1z5kP1LGMJQ5SpxNdPPknjvpbhV6RlSlJCeaX_LBiHVU0Rd1JYSKXwgPdMRjIeRF0VfP4D2bwGf82QstX_i2BWI4O4vriCRfVhqjxmA9yFLVkD-5Ktb3N7bOMZhivL0qGptEexcgSQshr5WRW3t2B6Ej7GBw1LNZXN6ou4Y1t2m_eB7AAjcHa3BdCdCzCt66g"/>
+<div>
+<p class="font-semibold text-primary">Classic Belgian Fudge</p>
+<p class="text-xs text-on-surface-variant">ID: PROD-1024</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm">Cakes</td>
+<td class="px-6 py-4 font-body-sm font-semibold">4,500</td>
+<td class="px-6 py-4 font-body-sm">12</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-secondary-container/30 text-secondary rounded-full text-xs font-bold">In Stock</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="px-6 py-4"><input class="rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/></td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Pastry" class="w-10 h-10 rounded-lg object-cover" data-alt="Golden flaky croissants freshly baked and stacked on a rustic cooling rack. Fine steam rises subtly, and crumbs are scattered artistically on a clean wooden surface. The lighting is bright and airy, typical of a high-end breakfast patisserie setting. The image uses soft warm tones and high-key whites for a sophisticated morning feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA32uGyQj94WLkjpmQ5NUBYsis8-A1ETgA54QkYcjgk9eLx1HZ9H2aBoW3T0EEymJ0ssD-nUTmJFPyl1ZEfxbMnK6AWdfjohefmj-iqeJlTtgtNYQrmQHEYVr8gOF04xPPx1kC3Jk8yknvNfUkjeNizi7-2wPOfo5ak0WsYCmqUgx_B5O8IQiqzJjvyxsf4LOG0w9TbT5g2LjjI_HizZ--CUCg-gcduj1pZWuswaCu6zxpEuxIpPIir0FM0aKJPkLzeL1UtJzi9Jqk"/>
+<div>
+<p class="font-semibold text-primary">Butter Croissant</p>
+<p class="text-xs text-on-surface-variant">ID: PROD-1025</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm">Pastries</td>
+<td class="px-6 py-4 font-body-sm font-semibold">450</td>
+<td class="px-6 py-4 font-body-sm">4</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-error-container/30 text-error rounded-full text-xs font-bold">Low Stock</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="px-6 py-4"><input class="rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/></td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Gift" class="w-10 h-10 rounded-lg object-cover" data-alt="An elegant luxury gift box tied with a gold satin ribbon, containing an assortment of artisanal macarons in pastel shades. The box is set against a cream-white background with subtle shadows, creating a deep sense of quality and craftsmanship. The photography is clean, minimal, and premium, focusing on the detail of the packaging and product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9pmEVN6q_y2LMv5taQ7hXMv2vmEzIseFndhQrhQUVxIHSbOR-pkVlt2BC4lbqqw2S5OckDuhftlOV3ZGGnVZiyLCMR5t_uzCZiibqplqWkNpwoKv9IKEa6kIT_zyB9-43AIA5boV_uQAfbDbckDuryfyH9Wqrf5Jr3WOafXmHAQrRLIj5wTRo9kqzYYXTcgNA2dcKX2nUqA8xFJLnyZQ7W8CvK7lxBhanZgZ0wMySWYbEJnXLdxkA5J90fzhnRwawJcjvdiD1n48"/>
+<div>
+<p class="font-semibold text-primary">Heritage Sampler Box</p>
+<p class="text-xs text-on-surface-variant">ID: PROD-1026</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm">Gifts</td>
+<td class="px-6 py-4 font-body-sm font-semibold">6,500</td>
+<td class="px-6 py-4 font-body-sm">0</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-outline-variant/30 text-on-surface-variant rounded-full text-xs font-bold">Out of Stock</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<!-- Item 4 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="px-6 py-4"><input class="rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/></td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Dessert" class="w-10 h-10 rounded-lg object-cover" data-alt="A beautifully plated artisanal dessert with delicate sponge, cream layers, and fresh berries. The dish is presented on a minimalist ceramic plate with fine gold powder dusted around the edges. The lighting is soft and directional, highlighting the intricate textures of the components. The overall vibe is sophisticated, luxury dining at its peak." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoMHsyx-Nd8QjjPTjWyB9HKEABLYos-PJXE87hvroqxe4giAasDTiLa6Uih-GOUFdi1CpP8S0-j0llH2vG6QYBvFBvNuDPDQmDk2dzKfcf0-6uBrRFsrHm34bWqNMYg1wfuMS-JfkOcoHUOyFHj5zcFLsDL7Wdoscw-FS-GCF3NoQiZj-YyYXwnmhYLzdWIMP42sSrcJ6qDqpd0r2K2NImJ5cxnK9sFEYZex59c9dTNS4x7BRi5F__DQqE99z0HxrYq2xU39KG6FY"/>
+<div>
+<p class="font-semibold text-primary">Pistachio Rose Mousse</p>
+<p class="text-xs text-on-surface-variant">ID: PROD-1027</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm">Desserts</td>
+<td class="px-6 py-4 font-body-sm font-semibold">1,200</td>
+<td class="px-6 py-4 font-body-sm">18</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-secondary-container/30 text-secondary rounded-full text-xs font-bold">In Stock</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-surface-container flex justify-between items-center border-t border-outline-variant/30">
+<p class="text-on-surface-variant font-label-sm">Showing 1-4 of 124 products</p>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-label-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-primary hover:bg-surface-variant transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-primary hover:bg-surface-variant transition-colors">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 backdrop-blur-sm hidden" id="add-product-modal">
+<div class="bg-surface w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden border border-outline-variant/50">
+<div class="px-8 py-6 border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-low">
+<div>
+<h3 class="font-headline-sm text-primary">Add New Product</h3>
+<p class="text-sm text-on-surface-variant">Enter details to update your inventory catalogue.</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary p-2" onclick="document.getElementById('add-product-modal').classList.add('hidden')">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<form class="p-8 space-y-6" onsubmit="event.preventDefault(); alert('Product Added Successfully'); document.getElementById('add-product-modal').classList.add('hidden')">
+<div class="grid grid-cols-2 gap-6">
+<div class="col-span-2">
+<label class="block font-label-lg text-primary mb-2">Product Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none font-body-md" placeholder="e.g. Lavender Honey Cake" type="text"/>
+</div>
+<div>
+<label class="block font-label-lg text-primary mb-2">Category</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none font-body-md">
+<option>Cakes</option>
+<option>Pastries</option>
+<option>Desserts</option>
+<option>Gifts</option>
+</select>
+</div>
+<div>
+<label class="block font-label-lg text-primary mb-2">Price (PKR)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none font-body-md" placeholder="0.00" type="number"/>
+</div>
+<div>
+<label class="block font-label-lg text-primary mb-2">Initial Stock</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none font-body-md" placeholder="0" type="number"/>
+</div>
+<div>
+<label class="block font-label-lg text-primary mb-2">Lead Time (Hours)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none font-body-md" placeholder="24" type="number"/>
+</div>
+<div class="col-span-2">
+<label class="block font-label-lg text-primary mb-2">Description</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none font-body-md" placeholder="Describe the ingredients and artisanal process..." rows="3"></textarea>
+</div>
+<div class="col-span-2">
+<label class="block font-label-lg text-primary mb-2">Product Image</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 text-center bg-surface-container-low hover:bg-surface-variant/30 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:scale-110 transition-transform block mb-2" data-icon="cloud_upload">cloud_upload</span>
+<p class="font-label-lg text-primary">Click to upload or drag and drop</p>
+<p class="text-xs text-on-surface-variant mt-1">High-resolution photography only (JPG, PNG)</p>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/30 flex justify-end gap-4">
+<button class="px-8 py-3 rounded-xl border border-outline-variant font-label-lg text-primary hover:bg-surface-variant transition-all" onclick="document.getElementById('add-product-modal').classList.add('hidden')" type="button">Cancel</button>
+<button class="px-8 py-3 rounded-xl bg-secondary text-on-secondary font-label-lg hover:opacity-90 transition-opacity" type="submit">Confirm & Add</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Floating Action for Help -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-secondary text-on-secondary rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition-transform group">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="absolute right-full mr-4 bg-primary text-on-primary px-3 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Admin Support</span>
+</button>
+<script>
+        // Modal interactivity
+        window.onclick = function(event) {
+            const modal = document.getElementById('add-product-modal');
+            if (event.target == modal) {
+                modal.classList.add('hidden');
+            }
+        }
+    </script>
+</body></html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pastries | Artisanal Heritage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e4e2de",
+                    "secondary-container": "#fed488",
+                    "primary": "#26170c",
+                    "primary-fixed": "#fbddca",
+                    "tertiary": "#20190e",
+                    "outline-variant": "#d2c4bc",
+                    "on-primary-container": "#ac9181",
+                    "inverse-primary": "#dec1af",
+                    "secondary-fixed": "#ffdea5",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "surface-bright": "#fbf9f5",
+                    "tertiary-fixed-dim": "#d2c4b2",
+                    "surface-dim": "#dbdad6",
+                    "secondary-fixed-dim": "#e9c176",
+                    "surface-tint": "#705a4c",
+                    "secondary": "#775a19",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#4f453f",
+                    "outline": "#81756e",
+                    "inverse-surface": "#30312e",
+                    "on-tertiary-fixed": "#221a0f",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#a19584",
+                    "on-secondary-container": "#785a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eae8e4",
+                    "surface-container-highest": "#e4e2de",
+                    "primary-fixed-dim": "#dec1af",
+                    "on-background": "#1b1c1a",
+                    "surface": "#fbf9f5",
+                    "inverse-on-surface": "#f2f0ed",
+                    "on-primary-fixed-variant": "#574335",
+                    "tertiary-fixed": "#efe0cd",
+                    "background": "#fbf9f5",
+                    "on-surface": "#1b1c1a",
+                    "tertiary-container": "#362e21",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#261900",
+                    "surface-container": "#efeeea",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#28180d",
+                    "primary-container": "#3d2b1f",
+                    "on-tertiary-fixed-variant": "#4f4538",
+                    "surface-container-low": "#f5f3ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "stack-sm": "16px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "stack-lg": "64px",
+                    "stack-md": "32px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Montserrat"],
+                    "display-lg": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "body-sm": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "label-lg": ["Montserrat"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-lg": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .luxury-shadow {
+            box-shadow: 0 8px 30px rgba(61, 43, 31, 0.08);
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .bento-card:hover .card-image {
+            transform: scale(1.05);
+        }
+        .card-image {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm h-20">
+<div class="flex justify-between items-center px-margin-desktop h-full max-w-container-max mx-auto">
+<div class="flex items-center gap-stack-md">
+<a class="font-display-lg text-headline-sm text-primary tracking-tight" href="../index.html">Artisanal Heritage</a>
+</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="../index.html">Home</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="cakes.html">Cakes</a>
+<a class="font-label-lg text-label-lg text-secondary font-bold border-b-2 border-secondary pb-1" href="pastries.html">Pastries</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="cupcakes-cookies-desserts.html">Desserts</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="special-occasions.html">Gifts</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">About</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="gallery.html">Gallery</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<div class="flex items-center gap-stack-sm">
+<div class="hidden lg:flex items-center bg-surface-container px-4 py-2 rounded-full border border-outline-variant/50">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-32 xl:w-48" placeholder="Search pastries..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-variant rounded-full transition-colors">shopping_cart</button>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-variant rounded-full transition-colors">person</button>
+<button class="md:hidden material-symbols-outlined text-primary p-2 hover:bg-surface-variant rounded-full transition-colors" onclick="toggleSidebar()">menu</button>
+</div>
+</div>
+</nav>
+<!-- Mobile Sidebar -->
+<div id="mobileSidebar" class="fixed inset-0 z-50 md:hidden hidden">
+<div class="fixed inset-0 bg-black/50" onclick="toggleSidebar()"></div>
+<div class="fixed left-0 top-0 bottom-0 w-72 bg-surface shadow-xl z-10 transform transition-all duration-300 overflow-y-auto">
+<div class="flex justify-between items-center p-4 border-b border-outline-variant">
+<span class="font-display-lg text-headline-sm text-primary">Menu</span>
+<button class="p-2 text-on-surface-variant hover:text-primary" onclick="toggleSidebar()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<nav class="flex flex-col p-4 gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="../index.html"><span class="material-symbols-outlined">home</span> Home</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="cakes.html"><span class="material-symbols-outlined">cake</span> Cakes</a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold bg-secondary-container rounded-xl" href="pastries.html"><span class="material-symbols-outlined">bakery_dining</span> Pastries</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="cupcakes-cookies-desserts.html"><span class="material-symbols-outlined">cookie</span> Desserts</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="special-occasions.html"><span class="material-symbols-outlined">card_giftcard</span> Gifts</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="custom-cakes.html"><span class="material-symbols-outlined">edit</span> Custom Cakes</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="gallery.html"><span class="material-symbols-outlined">collections</span> Gallery</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="reviews-faq.html"><span class="material-symbols-outlined">reviews</span> Reviews</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="contact.html"><span class="material-symbols-outlined">mail</span> Contact</a>
+<div class="border-t border-outline-variant/30 mt-4 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="../private/admin-login.html"><span class="material-symbols-outlined">admin_panel_settings</span> Admin</a>
+</div>
+</nav>
+</div>
+</div>
+<main class="pt-20">
+<!-- Hero Section -->
+<header class="relative h-[409px] flex items-center justify-center overflow-hidden bg-primary-container">
+<div class="absolute inset-0 z-0 opacity-40">
+<img class="w-full h-full object-cover" data-alt="A professional top-down cinematic shot of a luxury patisserie kitchen featuring rows of golden, flaky croissants and danishes cooling on a marble countertop. The lighting is warm and directional, highlighting the intricate layers of the pastry dough. The color palette is dominated by rich ambers, chocolate browns, and cream whites, creating an atmosphere of artisanal mastery and premium quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOwmCRRcvFSDFw5r2JA-QQzDUw21G1X5zH2t09S1a3qIcpvYGxx6WLI2TWZnsG2Eqi0ja1PJFR5nXbRCXRjpuvWpQOa-tprb7czPv6vs3TQ-NR2qnmUKYQ7ikArKCc3b1atNchjCvJmNZCYQ0C2qjt8ZNVcVGNgJR3QmoFpBJv3y1PAeJhbRM8VT-bgLTDQtDjYsPYtxeodSQWJxPPBglnWNiAb7yVLayhmNT39K-dGWe7E2HJg9hYQN4cyctyqdeFwV65gQ5hFuM"/>
+</div>
+<div class="relative z-10 text-center px-margin-mobile">
+<h1 class="font-display-lg text-display-lg text-primary-fixed mb-4">The Pastry Collection</h1>
+<p class="font-body-lg text-body-lg text-primary-fixed/80 max-w-2xl mx-auto">A symphony of butter, flour, and time. Handcrafted daily in our traditional kitchen with the finest imported ingredients.</p>
+</div>
+</header>
+<!-- Category Filter (Bento Style Sub-nav) -->
+<section class="max-w-container-max mx-auto px-margin-desktop py-stack-md flex flex-wrap gap-4 items-center justify-center">
+<button class="px-6 py-2 rounded-full bg-secondary text-on-primary font-label-lg text-label-lg luxury-shadow">All Pastries</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-outline-variant/30 transition-all">Croissants</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-outline-variant/30 transition-all">Danishes</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-outline-variant/30 transition-all">Cream Puffs</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-outline-variant/30 transition-all">Savory</button>
+</section>
+<!-- Product Grid -->
+<section class="max-w-container-max mx-auto px-margin-desktop pb-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1: Classic Croissant -->
+<div class="bento-card group flex flex-col bg-surface-container-lowest overflow-hidden border-b-2 border-outline-variant/20 transition-all duration-300 hover:border-secondary">
+<div class="relative aspect-square overflow-hidden">
+<img class="card-image w-full h-full object-cover" data-alt="A macro photograph of a perfectly golden-brown butter croissant resting on a minimalist cream-colored ceramic plate. The lighting is soft and natural, emphasizing the paper-thin, crispy layers of the dough. The background is a clean, out-of-focus light wood surface, reinforcing the artisanal, luxury patisserie brand identity. The overall mood is warm, inviting, and highly professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb_5cM5XUGqOF4f8zYzAGa2ck7TsHEVGOjQ1QyBtWNPSaPq_DJ7S3uKSSsqsVMjSwIc3btvlItxPuIxbRi7PejYJmi44xPKGgk-S93L1-d0wHvblkIfMtWGVgn8imbeTVDWhWEfPSQC5uiS2eyco64LMu6ttEc0Yt4hPS1p2iMNK3vgisDlyA-P-goZITL_-G0JKAE-oLaO3OkkSROCyVg3pvU9IkmUMjyZ_oGI8_LL_X1LhnwcC7mYwJbXmFgMLsgvGXB9SwvJ6s"/>
+<span class="absolute top-4 left-4 bg-secondary text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full">Bestseller</span>
+</div>
+<div class="p-6 text-center flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Classic French Croissant</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">72-hour fermented dough made with AOP butter from Normandy.</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-secondary mb-4">450 PKR</p>
+<button class="w-full py-3 bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors duration-300">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2: Pain au Chocolat -->
+<div class="bento-card group flex flex-col bg-surface-container-lowest overflow-hidden border-b-2 border-outline-variant/20 transition-all duration-300 hover:border-secondary">
+<div class="relative aspect-square overflow-hidden">
+<img class="card-image w-full h-full object-cover" data-alt="A close-up shot of a Pain au Chocolat with two distinct sticks of dark Belgian chocolate peeking through the flaky, golden pastry ends. The pastry is dusted with a very fine layer of powdered sugar, creating a sophisticated visual texture. The background is a minimalist dark marble slab with soft warm lighting that highlights the buttery sheen of the crust. Luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQR4Wx9H0W7-38fctbpJE3nLIn5ht7qJOsapHqnOxUa2SnVygeQYubgOkMUZNe_SJGGwi1Y2HN2SuQWimSqmKDImRvdyLEp_V6NlH14RFUPw7U0DsqvPlAK7NMrJaNlAE78H0gu5G-qAQ9Hguh9kKJq9glYo_HApeoMHR9JkDtFH9qBRO01UE9ZO8ngPAXjRAac8dCuFCekTvLVMHkwO0swNuAbXD4lIjI9atLWfN1A3maMHfG7fbiVHu990Djno0AmulPV4eZ6Go"/>
+</div>
+<div class="p-6 text-center flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Pain au Chocolat</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Laminated pastry filled with dual sticks of 64% dark Belgian chocolate.</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-secondary mb-4">520 PKR</p>
+<button class="w-full py-3 bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors duration-300">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3: Pistachio Danish -->
+<div class="bento-card group flex flex-col bg-surface-container-lowest overflow-hidden border-b-2 border-outline-variant/20 transition-all duration-300 hover:border-secondary">
+<div class="relative aspect-square overflow-hidden">
+<img class="card-image w-full h-full object-cover" data-alt="An artisanal Danish pastry featuring a central pool of vibrant green pistachio cream, topped with crushed roasted pistachios. The pastry base is a perfectly swirled, golden nest of flaky layers. Set against a minimalist warm-beige background with clean, editorial lighting that emphasizes the rich textures and premium ingredients. Minimalist luxury styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClOEoalcN-hxUDWFQwg8DOV7GV_5Q-VtMoA5VfBMfMrbWes23YBdHHWE3AuT_e2Ochc4uf-C13ILc9JI215YRGGEHy0jVwdOeE5hUN-mfWG4gQgW64Rbsw_JJZwDIa3B3mP0YC8HZnnyzt6K5HtwP65jiJZGfCYv-DqDHwII42lXAHB41jl02HNVq9CdlzXjbbagBRjAJ8M6pJ1cSlbguU7js6Mrm4V1wx28MzJMY7MmGEMyL80Je3pNfg-RKacYYf5I9Gn_LwGCM"/>
+<span class="absolute top-4 left-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full">New Arrival</span>
+</div>
+<div class="p-6 text-center flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Pistachio Custard Danish</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">House-made pistachio praline and vanilla bean custard center.</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-secondary mb-4">680 PKR</p>
+<button class="w-full py-3 bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors duration-300">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4: Vanilla Cream Puff -->
+<div class="bento-card group flex flex-col bg-surface-container-lowest overflow-hidden border-b-2 border-outline-variant/20 transition-all duration-300 hover:border-secondary">
+<div class="relative aspect-square overflow-hidden">
+<img class="card-image w-full h-full object-cover" data-alt="A delicate, perfectly spherical cream puff with a crisp craquelin top. The pastry is sliced open to reveal a generous swirl of light, speckled vanilla bean diplomat cream. High-end food photography with soft-key lighting on a pristine white marble surface. The atmosphere is elegant and focused on the perfection of the artisanal technique." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtOe0bNRqoFvvIdR9GVT0ZiEI4iYBefwhAWdEqHK7XOGlpeK6nJUQ35YmmCJ19Oa_26QVe9dGBdevnQudGVtV8f-ymi0rCQE8OdeSgAlSkaXeB1M2JQ4s9E04GQFjUo-LXhB-3F853CxRy50Mz6aP_LJD8o0F6SvQpVujj1MNxqSkWz48YEE16cp0325MTvzqOCIrRkZuctJfz87Cp2jWNKx3wIxru_zQzyaOpA7KoIqEOIgml_JRyONo70cYuYrrbsu55dKXnGUU"/>
+</div>
+<div class="p-6 text-center flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Vanilla Bean Cream Puff</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Choux au Craquelin filled with Madagascar vanilla diplomat cream.</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-secondary mb-4">350 PKR</p>
+<button class="w-full py-3 bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors duration-300">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product Card 5: Almond Croissant -->
+<div class="bento-card group flex flex-col bg-surface-container-lowest overflow-hidden border-b-2 border-outline-variant/20 transition-all duration-300 hover:border-secondary">
+<div class="relative aspect-square overflow-hidden">
+<img class="card-image w-full h-full object-cover" data-alt="A twice-baked almond croissant generously topped with toasted sliced almonds and a heavy dusting of snow-white powdered sugar. The pastry looks incredibly crunchy and rich. Shot at a 45-degree angle on a textured stone surface with warm ambient lighting, conveying a sense of rustic luxury and traditional heritage baking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxetdjx2dse-xNp_xdgailPtxwPbGuX334MKfmrdIE73R6h7bYPFDn2I777HHVo2q4t9DPYTSX1mBaRdIAhkwp5XiITe1XJ7Am-ZA1cuZ0WzBVZUzBUHxHzAILu8eb8i7BwwIBrvWBXbXukcw-rV_oPpfBnTTPYomdvN5_NqW7UdkamqwUVB7etk071t4M9p3fy-_CUsb58MqP2YitHOz4FBlyF25FMmxg-JR-mI0IEdif_T7Z4k1VboV0u_7D4h2_7PcaaICM-vE"/>
+</div>
+<div class="p-6 text-center flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Twice-Baked Almond</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Stuffed with creamy almond frangipane and topped with toasted slivers.</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-secondary mb-4">580 PKR</p>
+<button class="w-full py-3 bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors duration-300">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product Card 6: Seasonal Fruit Tart -->
+<div class="bento-card group flex flex-col bg-surface-container-lowest overflow-hidden border-b-2 border-outline-variant/20 transition-all duration-300 hover:border-secondary">
+<div class="relative aspect-square overflow-hidden">
+<img class="card-image w-full h-full object-cover" data-alt="An elegant pastry tart filled with glossy pastry cream and topped with a precise arrangement of fresh raspberries and blueberries. The shortbread crust is golden and sharp-edged. The lighting is bright and airy, accentuating the natural colors of the fruit. Minimalist aesthetic, luxury presentation, high-end commercial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLO3I5NJid5Rmjd7C2-2LXc0YjJ1LLYzC62xHjyBrlNTzl8QWraksRIJ6uyBeRNYp5fJ33rSbGiLdwpvQPad1VJqxnibhs3SRI1bJIJtNb5QdMNEPar1tWOoPXi6e8nlf2DbGyzoewy3WSQE-xRmyCGO2y51njIWI-M9rzuQOrNDeE02b2kdjtZfeQNixTg3Dxi7LYhgaeZ2l9cqtOf5_k4aTw8TZohpWif52fxktNAFewhbzTZVbSxkmg3tqKlVvOPUmrnUQ0WxM"/>
+</div>
+<div class="p-6 text-center flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Seasonal Fruit Tart</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Buttery pâte sucrée filled with crème pâtissière and glazed fresh berries.</p>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-secondary mb-4">750 PKR</p>
+<button class="w-full py-3 bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors duration-300">Order Now</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA Section -->
+<section class="bg-surface-container-low py-stack-lg border-y border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<h2 class="font-display-lg text-headline-md text-primary mb-4">Fresh Out of the Oven</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl mx-auto">Join our private list to receive notifications when our limited-edition weekend bakes are released.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<input class="w-full max-w-md px-6 py-4 bg-surface border border-outline focus:border-secondary focus:ring-1 focus:ring-secondary rounded-none font-body-md" placeholder="Your email address" type="email"/>
+<button class="w-full sm:w-auto px-8 py-4 bg-secondary text-on-primary font-label-lg text-label-lg luxury-shadow hover:bg-on-secondary-container transition-all">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-tertiary w-full py-stack-lg border-t border-outline/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto text-on-primary">
+<div class="md:col-span-1">
+<h2 class="font-display-lg text-headline-sm text-on-primary mb-6">Artisanal Heritage</h2>
+<p class="font-body-sm text-body-sm text-on-primary/70 max-w-xs">
+                    Redefining luxury patisserie in Pakistan through time-honored techniques and global excellence.
+                </p>
+</div>
+<div class="md:col-span-1">
+<h3 class="font-label-lg text-label-lg mb-6 uppercase tracking-widest text-secondary-fixed">Collections</h3>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Bespoke Cakes</a></li>
+<li><a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Viennoiserie</a></li>
+<li><a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Macarons</a></li>
+<li><a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Gift Boxes</a></li>
+</ul>
+</div>
+<div class="md:col-span-1">
+<h3 class="font-label-lg text-label-lg mb-6 uppercase tracking-widest text-secondary-fixed">Information</h3>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Privacy Policy</a></li>
+<li><a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Terms of Service</a></li>
+<li><a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Shipping Info</a></li>
+<li><a class="font-body-sm text-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div class="md:col-span-1">
+<h3 class="font-label-lg text-label-lg mb-6 uppercase tracking-widest text-secondary-fixed">Find Us</h3>
+<p class="font-body-sm text-body-sm text-on-primary/70 mb-4">
+                    124-E, Gulberg Main, Lahore, Pakistan<br/>
+                    Tel: +92 (42) 3571-0000
+                </p>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-secondary-fixed">facebook</button>
+<button class="material-symbols-outlined text-secondary-fixed">instaphoto</button>
+<button class="material-symbols-outlined text-secondary-fixed">mail</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-stack-lg pt-8 border-t border-on-primary/10 text-center">
+<p class="font-body-sm text-body-sm text-on-primary/50">© 2024 Artisanal Heritage Pakistan. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- Floating WhatsApp Button -->
+<a class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center luxury-shadow hover:scale-110 transition-transform duration-300" href="https://wa.me/923000000000">
+<svg fill="white" height="32" viewbox="0 0 16 16" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.607zM7.994 14.52ad6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+</svg>
+</a>
+<script>
+        // Micro-interaction for smooth scrolling header reveal
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) {
+                nav.classList.remove('-translate-y-full');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !nav.classList.contains('-translate-y-full')) {
+                // Scroll down
+                nav.classList.add('-translate-y-full');
+            } else if (currentScroll < lastScroll && nav.classList.contains('-translate-y-full')) {
+                // Scroll up
+                nav.classList.remove('-translate-y-full');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Simple cart interaction simulation
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.textContent === 'Order Now') {
+                btn.addEventListener('click', function() {
+                    const originalText = this.textContent;
+                    this.textContent = 'Added to Box';
+                    this.classList.remove('bg-primary');
+                    this.classList.add('bg-secondary');
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.classList.remove('bg-secondary');
+                        this.classList.add('bg-primary');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body></html>

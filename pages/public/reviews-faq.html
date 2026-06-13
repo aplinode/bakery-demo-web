@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .luxury-shadow {
+            box-shadow: 0 8px 30px rgba(61, 43, 31, 0.08);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+        .accordion-item.active .icon-rotate {
+            transform: rotate(180deg);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e4e2de",
+                      "secondary-container": "#fed488",
+                      "primary": "#26170c",
+                      "primary-fixed": "#fbddca",
+                      "tertiary": "#20190e",
+                      "outline-variant": "#d2c4bc",
+                      "on-primary-container": "#ac9181",
+                      "inverse-primary": "#dec1af",
+                      "secondary-fixed": "#ffdea5",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "surface-bright": "#fbf9f5",
+                      "tertiary-fixed-dim": "#d2c4b2",
+                      "surface-dim": "#dbdad6",
+                      "secondary-fixed-dim": "#e9c176",
+                      "surface-tint": "#705a4c",
+                      "secondary": "#775a19",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#4f453f",
+                      "outline": "#81756e",
+                      "inverse-surface": "#30312e",
+                      "on-tertiary-fixed": "#221a0f",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-container": "#a19584",
+                      "on-secondary-container": "#785a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#eae8e4",
+                      "surface-container-highest": "#e4e2de",
+                      "primary-fixed-dim": "#dec1af",
+                      "on-background": "#1b1c1a",
+                      "surface": "#fbf9f5",
+                      "inverse-on-surface": "#f2f0ed",
+                      "on-primary-fixed-variant": "#574335",
+                      "tertiary-fixed": "#efe0cd",
+                      "background": "#fbf9f5",
+                      "on-surface": "#1b1c1a",
+                      "tertiary-container": "#362e21",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#261900",
+                      "surface-container": "#efeeea",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#28180d",
+                      "primary-container": "#3d2b1f",
+                      "on-tertiary-fixed-variant": "#4f4538",
+                      "surface-container-low": "#f5f3ef"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "unit": "8px",
+                      "container-max": "1280px",
+                      "stack-sm": "16px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "stack-lg": "64px",
+                      "stack-md": "32px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Montserrat"],
+                      "display-lg": ["Playfair Display"],
+                      "body-md": ["Montserrat"],
+                      "body-lg": ["Montserrat"],
+                      "body-sm": ["Montserrat"],
+                      "headline-sm": ["Playfair Display"],
+                      "label-lg": ["Montserrat"],
+                      "display-lg-mobile": ["Playfair Display"],
+                      "headline-md": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "label-lg": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-container-high/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<nav class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center">
+<a class="font-display-lg text-headline-sm text-primary dark:text-primary-fixed tracking-tight" href="../index.html">Artisanal Heritage</a>
+</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="../index.html">Home</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="cakes.html">Cakes</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="pastries.html">Pastries</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="cupcakes-cookies-desserts.html">Desserts</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="special-occasions.html">Gifts</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">About</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="gallery.html">Gallery</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<div class="flex items-center gap-stack-sm">
+<button class="p-2 text-on-surface-variant hover:text-secondary-fixed-dim transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary-fixed-dim transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+<button class="md:hidden p-2 text-on-surface-variant hover:text-secondary-fixed-dim transition-all duration-200" onclick="toggleSidebar()">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Mobile Sidebar -->
+<div id="mobileSidebar" class="fixed inset-0 z-50 md:hidden hidden">
+<div class="fixed inset-0 bg-black/50" onclick="toggleSidebar()"></div>
+<div class="fixed left-0 top-0 bottom-0 w-72 bg-surface shadow-xl z-10 transform transition-all duration-300 overflow-y-auto">
+<div class="flex justify-between items-center p-4 border-b border-outline-variant">
+<span class="font-display-lg text-headline-sm text-primary">Menu</span>
+<button class="p-2 text-on-surface-variant hover:text-primary" onclick="toggleSidebar()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<nav class="flex flex-col p-4 gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="../index.html"><span class="material-symbols-outlined">home</span> Home</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="cakes.html"><span class="material-symbols-outlined">cake</span> Cakes</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="pastries.html"><span class="material-symbols-outlined">bakery_dining</span> Pastries</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="cupcakes-cookies-desserts.html"><span class="material-symbols-outlined">cookie</span> Desserts</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="special-occasions.html"><span class="material-symbols-outlined">card_giftcard</span> Gifts</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="custom-cakes.html"><span class="material-symbols-outlined">edit</span> Custom Cakes</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="gallery.html"><span class="material-symbols-outlined">collections</span> Gallery</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold bg-secondary-container rounded-xl" href="reviews-faq.html"><span class="material-symbols-outlined">reviews</span> Reviews</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="contact.html"><span class="material-symbols-outlined">mail</span> Contact</a>
+<div class="border-t border-outline-variant/30 mt-4 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-colors" href="../private/admin-login.html"><span class="material-symbols-outlined">admin_panel_settings</span> Admin</a>
+</div>
+</nav>
+</div>
+</div>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="px-margin-desktop py-stack-lg max-w-container-max mx-auto text-center">
+<h1 class="font-display-lg text-display-lg mb-4 text-primary">Voices of Excellence</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Discover the stories of celebration and joy from our patrons across Pakistan, where every bite is a heritage preserved.
+            </p>
+</section>
+<!-- Testimonial Bento Grid -->
+<section class="px-margin-desktop pb-stack-lg max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Feature Review -->
+<div class="md:col-span-8 bg-surface-container-low p-stack-md flex flex-col md:flex-row gap-gutter luxury-shadow">
+<div class="md:w-1/2 aspect-square overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A close-up photograph of a multi-tiered luxury chocolate cake decorated with intricate gold leaf details and edible flowers. The lighting is soft and warm, characteristic of an artisanal bakery setting, highlighting the rich textures of the cocoa frosting. The background is a clean, minimalist cream white, emphasizing the product's elegance and premium quality in line with a high-end Pakistani patisserie aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG1uQlxzoRrdudN8TB0rit4Axpp8Ha8cvo85HQv0iMCycI9s4n_ZBVui7DY_d5-mH5fWkq8OWkpj_jAo3OF6VYEXaVbr-hCHkHeUaUomDDcEXuGbnwkV-G1MQKxIVgHWs0iOAJOBPodc7YTyN2WWWKuQd_dWrACFSzqfG6r8TFSiy6ned_scCpC09qjWbFlJIkvy3reIa3K-bWlS-XNbLRvTQsprBWlAouo4dtsr3WvLXKpFBCuuxtQp7CyGkxIzCyYXAN3Oau4Oo"/>
+</div>
+<div class="md:w-1/2 flex flex-col justify-center">
+<div class="flex gap-1 mb-4 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">"The center of our celebration"</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 italic leading-relaxed">
+                            "The Midnight Truffle cake we ordered for our anniversary wasn't just a dessert; it was a masterpiece. The depth of flavor and the exquisite gold detailing were far beyond what we expected. Artisanal Heritage has truly brought luxury baking to Lahore."
+                        </p>
+<div class="mt-auto">
+<p class="font-label-lg text-label-lg text-primary">Fatima Zafar</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Lahore Cantt</p>
+</div>
+</div>
+</div>
+<!-- Side Review 1 -->
+<div class="md:col-span-4 bg-surface-container-low p-stack-sm flex flex-col luxury-shadow">
+<div class="flex gap-1 mb-4 text-secondary">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 italic leading-relaxed">
+                        "Unmatched quality. The pistachio macarons are easily the best in the city. The packaging itself feels like a gift."
+                    </p>
+<div class="flex items-center gap-4 mt-auto">
+<div class="w-12 h-12 bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A macro shot of delicate pistachio green macarons arranged in a minimalist ceramic tray. The texture of the macaron shells is perfectly smooth with ruffled feet, presented against a soft beige background. The lighting is bright and natural, reflecting a clean luxury lifestyle aesthetic consistent with artisanal heritage branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmEhb2FYScJgkqN8knPWFezJ3RbZhjpBctc5_35g1EOuDDbzFAO5F3XxY5pBE-vCsX6jXTYmkNoNjuvEW7XOeZIe4ABGvjJexFiCuUl41YXxcEq99gb_rTKoSk_ICAbtVjH32Hz_sLNQPm3K-Ibv-n-46r4SMhWEUzrx8lNOJIcDR67VjYM-dPh1DSLJSqpBXnMnq3C4G4tm7fOde8_kTewYedWDVUPiip1ovNyrovZPjGf_jWoL8trSzff-SHcUtdmr0jMtS9isQ"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-primary">Zainab S.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Karachi, DHA</p>
+</div>
+</div>
+</div>
+<!-- Bottom Review 1 -->
+<div class="md:col-span-4 bg-surface-container-low p-stack-sm flex flex-col luxury-shadow">
+<div class="flex gap-1 mb-4 text-secondary">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 italic">
+                        "The delivery was prompt and the cake arrived in pristine condition. Highly recommended for corporate gifts."
+                    </p>
+<div class="flex items-center gap-4 mt-auto">
+<p class="font-label-lg text-label-lg text-primary">Ahmed Ali</p>
+<span class="text-outline text-xs">•</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Islamabad</p>
+</div>
+</div>
+<!-- Bottom Review 2 (Image Focused) -->
+<div class="md:col-span-4 bg-primary text-on-primary p-stack-sm flex flex-col luxury-shadow justify-center">
+<p class="font-headline-sm text-headline-sm text-on-primary mb-4 italic">"Simply the best patisserie experience in Pakistan."</p>
+<div class="h-1 bg-secondary-fixed-dim w-12"></div>
+</div>
+<!-- Bottom Review 3 -->
+<div class="md:col-span-4 bg-surface-container-low p-stack-sm flex flex-col luxury-shadow">
+<div class="flex gap-1 mb-4 text-secondary">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 italic">
+                        "Ordered their customized fondant cake for my daughter's first birthday. Every detail was handled with precision."
+                    </p>
+<div>
+<p class="font-label-lg text-label-lg text-primary">Mariam Khan</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Rawalpindi</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="bg-surface-container-low py-stack-lg border-y border-outline-variant/20">
+<div class="px-margin-desktop max-w-3xl mx-auto">
+<div class="text-center mb-stack-md">
+<h2 class="font-display-lg text-headline-md text-primary mb-2">Common Inquiries</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Everything you need to know about our artisanal services.</p>
+</div>
+<div class="space-y-unit">
+<!-- FAQ Item 1 -->
+<div class="accordion-item bg-surface border border-outline-variant/30 overflow-hidden">
+<button class="w-full flex justify-between items-center px-stack-sm py-5 text-left transition-colors hover:bg-surface-container" onclick="toggleAccordion(this)">
+<span class="font-label-lg text-label-lg text-primary">Where do you deliver?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-300" data-icon="expand_more">expand_more</span>
+</button>
+<div class="accordion-content">
+<div class="px-stack-sm pb-5 font-body-md text-body-md text-on-surface-variant">
+                                We currently offer premium temperature-controlled delivery across Lahore, Karachi, and Islamabad. Delivery zones include DHA, Bahria Town, and major metropolitan areas. For specific addresses, please use the locator at checkout.
+                            </div>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="accordion-item bg-surface border border-outline-variant/30 overflow-hidden">
+<button class="w-full flex justify-between items-center px-stack-sm py-5 text-left transition-colors hover:bg-surface-container" onclick="toggleAccordion(this)">
+<span class="font-label-lg text-label-lg text-primary">How far in advance should I book?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-300" data-icon="expand_more">expand_more</span>
+</button>
+<div class="accordion-content">
+<div class="px-stack-sm pb-5 font-body-md text-body-md text-on-surface-variant">
+                                For standard signature cakes, we require at least 48 hours notice. Custom artisanal cakes and wedding tiers require 7-10 business days for design consultation and ingredient sourcing to ensure perfection.
+                            </div>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="accordion-item bg-surface border border-outline-variant/30 overflow-hidden">
+<button class="w-full flex justify-between items-center px-stack-sm py-5 text-left transition-colors hover:bg-surface-container" onclick="toggleAccordion(this)">
+<span class="font-label-lg text-label-lg text-primary">What payment methods are accepted?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-300" data-icon="expand_more">expand_more</span>
+</button>
+<div class="accordion-content">
+<div class="px-stack-sm pb-5 font-body-md text-body-md text-on-surface-variant">
+                                We accept all major credit/debit cards (Visa, Mastercard), Bank Transfers, and JazzCash. Cash on Delivery is available for orders under PKR 5,000 within specific city limits.
+                            </div>
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="accordion-item bg-surface border border-outline-variant/30 overflow-hidden">
+<button class="w-full flex justify-between items-center px-stack-sm py-5 text-left transition-colors hover:bg-surface-container" onclick="toggleAccordion(this)">
+<span class="font-label-lg text-label-lg text-primary">Are your products 100% Halal?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-300" data-icon="expand_more">expand_more</span>
+</button>
+<div class="accordion-content">
+<div class="px-stack-sm pb-5 font-body-md text-body-md text-on-surface-variant">
+                                Absolutely. Transparency is core to our heritage. We use strictly Halal-certified ingredients, including our gelatin and emulsifiers. We source local premium dairy and imported chocolate from certified ethical suppliers.
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<div class="bg-primary-container p-stack-lg flex flex-col md:flex-row items-center justify-between gap-gutter">
+<div class="text-on-primary-container text-center md:text-left">
+<h2 class="font-display-lg text-headline-md mb-2">Ready for a Taste?</h2>
+<p class="font-body-md opacity-90">Join our mailing list for exclusive previews of seasonal collections.</p>
+</div>
+<div class="flex flex-col sm:flex-row w-full md:w-auto gap-4">
+<input class="bg-surface/10 border border-on-primary-container/30 text-on-primary-container px-6 py-3 font-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-fixed" placeholder="Enter your email" type="email"/>
+<button class="bg-secondary-fixed text-on-secondary-fixed font-label-lg px-8 py-3 hover:bg-secondary-fixed-dim transition-colors">Subscribe</button>
+
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-tertiary w-full py-stack-lg border-t border-outline/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-display-lg text-headline-sm text-on-primary">Artisanal Heritage</span>
+<p class="font-body-sm text-on-primary/70 mt-4 leading-relaxed">
+                    Celebrating the intersection of traditional Pakistani hospitality and modern patisserie excellence.
+                </p>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-label-lg text-secondary-fixed mb-2">Quick Links</h4>
+<a class="font-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all duration-300" href="#">Terms of Service</a>
+<a class="font-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all duration-300" href="#">Shipping Info</a>
+<a class="font-body-sm text-on-primary/70 hover:text-on-primary hover:translate-x-1 transition-all duration-300" href="contact.html">Contact Us</a>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-label-lg text-secondary-fixed mb-2">Our Boutiques</h4>
+<p class="font-body-sm text-on-primary/70">Main Boulevard, Gulberg III, Lahore</p>
+<p class="font-body-sm text-on-primary/70">E7 Sector, Islamabad</p>
+<p class="font-body-sm text-on-primary/70">Khayaban-e-Shahbaz, DHA Phase 6, Karachi</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-lg text-secondary-fixed mb-2">Connect</h4>
+<div class="flex gap-4">
+<a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="facebook">face_nod</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="camera">camera</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-stack-md pt-8 border-t border-outline/10 text-center">
+<p class="font-body-sm text-on-primary/50">© 2024 Artisanal Heritage Pakistan. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- Floating WhatsApp Button -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-secondary-fixed text-primary rounded-full flex items-center justify-center luxury-shadow z-50 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+<script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.accordion-item').forEach(accItem => {
+                accItem.classList.remove('active');
+            });
+
+            // If it wasn't active, open it
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+</body></html>
